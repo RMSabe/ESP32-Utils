@@ -38,7 +38,7 @@ void st7920_paint_graphic_buffer(st7920_t *lcd);
 void st7920_clear_graphic_buffer(st7920_t *lcd);
 void st7920_clear_graphic(st7920_t *lcd);
 void st7920_clear_text(st7920_t *lcd);
-void st7920_set_text_cursor(st7920_t *lcd, uint8_t cx, uint8_t cy);
+void st7920_set_text_cursor(st7920_t *lcd, uint8_t cx, uint8_t cy); //Horizontal Cursor position counts for every 2 ASCII characters. Use whitespace to shift 1 ASCII characters.
 void st7920_print_text(st7920_t *lcd, const char *text);
 void st7920_print_spchar(st7920_t *lcd, const uint16_t spchar); //Function to print 16bit GB Code special characters.
 void st7920_print_spchar_text(st7920_t *lcd, const uint16_t *spchar_text, uint32_t length); //Function to print 16bit GB Code special characters.
