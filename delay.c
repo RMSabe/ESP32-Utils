@@ -1,6 +1,6 @@
 #include "delay.h"
 #include <stdint.h>
-#include "rim/ets_sys.h"
+#include "rom/ets_sys.h"
 
 void delay_us(uint32_t time_us)
 {
