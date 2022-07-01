@@ -240,18 +240,6 @@ void st7920_print_text(st7920_t *lcd, const char *text)
   return;
 }
 
-void st7920_print_spchar(st7920_t *lcd, const uint16_t spchar)
-{
-  uint8_t high_byte = (spchar >> 8);
-  uint8_t low_byte = (spchar & 0x00FF);
-  
-  st7920_send_byte(lcd, false, 0x30);
-  st7920_send_byte(lcd, true, high_byte);
-  st7920_send_byte(lcd, true, low_byte);
-  
-  return;
-}
-
 void st7920_print_spchar_text(st7920_t *lcd, const uint16_t *spchar_text, uint32_t length)
 {
   st7920_send_byte(lcd, false, 0x30);
