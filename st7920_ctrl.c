@@ -254,10 +254,17 @@ void st7920_print_spchar(st7920_t *lcd, const uint16_t spchar)
 
 void st7920_print_spchar_text(st7920_t *lcd, const uint16_t *spchar_text, uint32_t length)
 {
+  st7920_send_byte(lcd, false, 0x30);
+  uint8_t high_byte = 0;
+  uint8_t low_byte = 0;
+  
   uint32_t nspchar = 0;
   while(nspchar < length)
   {
-    st7920_print_spchar(lcd, spchar_text[nspchar]);
+    high_byte = (spchar_text[nspchar] >> 8);
+    low_byte = (spchar_text[nspchar] & 0x00FF);
+    st7920_send_byte(lcd, true, high_byte);
+    st7920_send_byte(lcd, true, low_byte);
     nspchar++;
   }
   
